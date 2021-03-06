@@ -5,7 +5,7 @@ class MyCalendar:
     def __init__(self, *args):
         self.datas = []
         self.datas = self.add_holiday(*args)
-    
+
     def remove_repetido(self, lista):
         lisa_interna = []
         for i in lista:
@@ -22,19 +22,17 @@ class MyCalendar:
                 try:
                     arg = datetime.strptime(arg, '%d/%m/%Y').date()
                     lista.append(arg)
-                except:
+                except Exception:
                     pass
             self.datas = self.remove_repetido(lista)
         return self.datas
 
-    def check_holiday(self, *data):
-        for dt in data:
-            if isinstance(dt, date):
-                return dt in self.datas
-            if isinstance(dt, str):
-                try:
-                    dt = datetime.strptime(dt, '%d/%m/%Y').date()
-                    return dt in self.datas
-                except:
-                    return False
-            
+    def check_holiday(self, data):
+        if isinstance(data, date):
+            return data in self.datas
+        if isinstance(data, str):
+            try:
+                data = datetime.strptime(data, '%d/%m/%Y').date()
+                return data in self.datas
+            except Exception:
+                return False

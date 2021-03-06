@@ -13,26 +13,25 @@ class MyCalendar:
                 lisa_interna.append(i)
         return lisa_interna
 
+    def normalize_data(self, data):
+        if isinstance(data, date):
+            return data
+        if isinstance(data, str):
+            try:
+                data = datetime.strptime(data, '%d/%m/%Y').date()
+                return data
+            except Exception:
+                pass
+
     def add_holiday(self, *args):
         lista = self.datas
         for arg in args:
-            if isinstance(arg, date):
+            arg = self.normalize_data(arg)
+            if arg:
                 lista.append(arg)
-            if isinstance(arg, str):
-                try:
-                    arg = datetime.strptime(arg, '%d/%m/%Y').date()
-                    lista.append(arg)
-                except Exception:
-                    pass
             self.datas = self.remove_repetido(lista)
         return self.datas
 
     def check_holiday(self, data):
-        if isinstance(data, date):
-            return data in self.datas
-        if isinstance(data, str):
-            try:
-                data = datetime.strptime(data, '%d/%m/%Y').date()
-                return data in self.datas
-            except Exception:
-                return False
+        data = self.normalize_data(data)
+        return data in self.datas

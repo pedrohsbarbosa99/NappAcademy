@@ -102,7 +102,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-napp_env*
 .env
 .venv
 env/
@@ -133,3 +132,4 @@ dmypy.json
 *.pdf
 *.csv
 exercicios/semana5/semana5/MyHolidays/requirements.txt
+.vscode/settings.json

@@ -29,13 +29,13 @@ class TestDepartamento:
 
     def test_responsavel(self):
         departamento = Departamento('Departamento XYZ', 'Jose', 5, 2, 1990)
-        assert departamento.responsavel is 'Jose'
+        assert departamento.responsavel == 'Jose'
         departamento.informar_responsavel('Jose', 1, 1, 1990)
         assert departamento.responsavel == 'Jose'
 
     def test_responsavel_substituido(self):
         departamento = Departamento('Departamento XYZ', 'Jose', 1, 1, 1990)
-        assert departamento.responsavel is 'Jose'
+        assert departamento.responsavel == 'Jose'
         departamento.informar_responsavel('Jose', 1, 1, 1990)
         assert departamento.responsavel == 'Jose'
         departamento.informar_responsavel('Joao Oliveira', 1, 1, 1990)

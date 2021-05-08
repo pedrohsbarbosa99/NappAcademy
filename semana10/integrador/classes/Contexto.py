@@ -1,18 +1,23 @@
 from integrador.classes.Estrategias import Estrategia_CSV
 from integrador.classes.Estrategias import Estrategia_SQLite
+from integrador.classes.Estrategias import Estrategia_Texto1
+from integrador.classes.Estrategias import Estrategia_Texto2
 
 estrategias = {
     'csv': Estrategia_CSV(),
     'sqlite': Estrategia_SQLite(),
+    'texto_1': Estrategia_Texto1(),
+    'texto_2': Estrategia_Texto2(),
 }
 
 
-class Contexto():
+class Contexto:
     """
     Contexto do integrador
     Objeto responsável por armazenar o algoritmo (estratégia)
     e os dados de acesso (credenciais)
     """
+
     def __init__(self, **kwargs):
         try:
             algoritmo_escolhido = kwargs['algoritmo'].lower()

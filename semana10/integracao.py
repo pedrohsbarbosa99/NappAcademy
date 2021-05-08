@@ -1,10 +1,11 @@
 from integrador.classes.Contexto import Contexto
 
+
 def carregar_credenciais(arquivo):
     credenciais = {}
     try:
         with open(arquivo) as file:
-            for line  in file:
+            for line in file:
                 try:
                     key, valor = line.split('==>')
                     valor = valor.replace('\n', '')
@@ -16,13 +17,13 @@ def carregar_credenciais(arquivo):
     return credenciais
 
 
-
 if __name__ == "__main__":
     arquivos = []
-    #arquivos += ['credenciais1.txt', 'credenciais2.txt']
-#    arquivos += ['credenciais3.txt']
-    arquivos += ['credenciais4.txt', 'credenciais5.txt']
-#    arquivos += ['credenciais6.txt']
+    # arquivos += ['credenciais1.txt', 'credenciais2.txt']
+    # arquivos += ['credenciais3.txt']
+    # arquivos += ['credenciais4.txt', 'credenciais5.txt']
+    # arquivos += ['credenciais6.txt']
+    arquivos += ['credenciais_text_2.txt']
 
     for arquivo in arquivos:
         credenciais = carregar_credenciais(arquivo)

@@ -1,9 +1,15 @@
 from abc import ABC, abstractmethod
+from produtos.classes.Caracteristicas import Caracteristicas
 
 
 class Produto(ABC):
     def __init__(self, implementation):
+        if not isinstance(implementation, Caracteristicas):
+            raise TypeError(
+                "Produto deve ser uma subclasse de Caracteristicas"
+            )
         self.implementation = implementation
+        super().__init__()
 
     @abstractmethod
     def operation(self):

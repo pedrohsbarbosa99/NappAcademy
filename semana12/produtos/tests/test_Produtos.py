@@ -44,3 +44,9 @@ class TestProduto:
         with pytest.raises(TypeError) as error:
             Produto()
         assert str(error.value) == msg_erro
+
+    def test_subclass_Caracteristicas(self):
+        msg_erro = "Produto deve ser uma subclasse de Caracteristicas"
+        with pytest.raises(TypeError) as error:
+            Pepsi("3 litros.")
+        assert str(error.value) == msg_erro

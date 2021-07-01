@@ -8,6 +8,5 @@ for frase in lista_frases:
     frase = frase.split(' ')
     for palavra in frase:
         for s in sufix:
-            if palavra.__contains__(s):
+            if s in palavra:
                 print(palavra)
-
